@@ -20,3 +20,8 @@ export const createUserToDb = async () => {
   });
   await user.save();
 };
+
+export const getUsersFromDb = async () => {
+  const users = await User.find();
+  return users;
+};

@@ -1,5 +1,17 @@
-import { NextFunction, Request, Response, response } from "express";
-import { createUserToDb } from "./user.service";
+import { NextFunction, Request, Response } from "express";
+import { createUserToDb, getUsersFromDb } from "./user.service";
+
+export const getUsers = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const users = await getUsersFromDb();
+  res.status(200).json({
+    statusCode: 200,
+    data: users,
+  });
+};
 
 export const createUser = async (
   req: Request,
@@ -10,7 +22,7 @@ export const createUser = async (
   res.status(200).json({
     statusCode: 200,
     message: "success",
-    data: "user",
+    data: user,
   });
 };
 
