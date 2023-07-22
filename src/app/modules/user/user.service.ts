@@ -7,7 +7,14 @@ export const createUserToDb = async (payload: IUser): Promise<IUser> => {
   return user;
 };
 
-export const getUsersFromDb = async () => {
+export const getUsersFromDb = async (): Promise<IUser[]> => {
   const users = await User.find();
   return users;
+};
+
+export const getUserByIdFromDb = async (
+  payloadId: string
+): Promise<IUser | null> => {
+  const user = await User.findOne({ id: payloadId });
+  return user;
 };
