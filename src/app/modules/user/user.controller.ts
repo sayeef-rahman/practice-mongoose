@@ -8,7 +8,7 @@ export const getUsers = async (
 ) => {
   const users = await getUsersFromDb();
   res.status(200).json({
-    statusCode: 200,
+    message: "success",
     data: users,
   });
 };
@@ -18,9 +18,9 @@ export const createUser = async (
   res: Response,
   next: NextFunction
 ) => {
-  const user = await createUserToDb();
+  const data = req.body;
+  const user = await createUserToDb(data);
   res.status(200).json({
-    statusCode: 200,
     message: "success",
     data: user,
   });
