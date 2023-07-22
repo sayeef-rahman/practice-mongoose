@@ -7,11 +7,10 @@ export const createUser = async (
   next: NextFunction
 ) => {
   const user = await createUserToDb();
-  console.log(user);
-  response.status(200).json({
+  res.status(200).json({
     statusCode: 200,
     message: "success",
-    data: user,
+    data: "user",
   });
 };
 
