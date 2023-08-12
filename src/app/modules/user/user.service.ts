@@ -27,3 +27,8 @@ export const getAdminsFromDb = async (): Promise<IUser[] | null> => {
   const admins = await User.find({ role: "admin" });
   return admins;
 };
+
+// export const getAdminsFromDbStatic = async () => {
+//   const admins = await User.getAdminsStatic("admin");
+//   return admins;
+// };
