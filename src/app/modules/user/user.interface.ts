@@ -1,6 +1,6 @@
 export interface IUser {
   id: string;
-  role: "student";
+  role: "student" | "admin";
   password: string;
   name: {
     firstName: string;
@@ -14,4 +14,8 @@ export interface IUser {
   emergencyContactNo?: string;
   presentAddress: string;
   permanentAddress: string;
+}
+
+export interface IUserMethods {
+  fullName(): string;
 }

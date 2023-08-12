@@ -1,9 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 import {
   createUserToDb,
+  getAdminsFromDb,
   getUserByIdFromDb,
   getUsersFromDb,
 } from "./user.service";
+import { IUser } from "./user.interface";
 
 export const getUsers = async (
   req: Request,
@@ -41,6 +43,25 @@ export const getUserById = async (
     message: "success",
     data: user,
   });
+};
+
+export const getAdmins = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const admins: IUser[] | null = await getAdminsFromDb();
+  if (admins) {
+    res.status(200).json({
+      message: "success",
+      data: admins,
+    });
+  } else {
+    res.status(404).json({
+      message: "No admin found",
+      data: [],
+    });
+  }
 };
 
 //pattern
