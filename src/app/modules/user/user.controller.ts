@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import {
   createUserToDb,
   getAdminsFromDb,
-  // getAdminsFromDbStatic,
+  getAdminsFromDbStatic,
   getUserByIdFromDb,
   getUsersFromDb,
 } from "./user.service";
@@ -65,24 +65,18 @@ export const getAdmins = async (
   }
 };
 
-// export const getAdminsStatic = async (
-//   req: Request,
-//   res: Response,
-//   next: NextFunction
-// ) => {
-//   const admins = await getAdminsFromDbStatic();
-//   if (admins) {
-//     res.status(200).json({
-//       message: "success",
-//       data: admins,
-//     });
-//   } else {
-//     res.status(404).json({
-//       message: "No admin found",
-//       data: [],
-//     });
-//   }
-// };
+export const getAdminsStatic = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const admins = await getAdminsFromDbStatic();
+  console.log("admins", admins);
+  res.status(200).json({
+    message: "success",
+    data: admins,
+  });
+};
 
 //pattern
 

@@ -6,8 +6,8 @@ export const createUserToDb = async (payload: IUser): Promise<IUser> => {
   await user.save();
 
   //custom instance methods
-  const fullName = user.fullName();
-  console.log(fullName);
+  // const fullName = user.fullName();
+  // console.log(fullName);
   return user;
 };
 
@@ -28,7 +28,7 @@ export const getAdminsFromDb = async (): Promise<IUser[] | null> => {
   return admins;
 };
 
-// export const getAdminsFromDbStatic = async () => {
-//   const admins = await User.getAdminsStatic("admin");
-//   return admins;
-// };
+export const getAdminsFromDbStatic = async () => {
+  const admins = await User.getAdminUsers();
+  return admins;
+};

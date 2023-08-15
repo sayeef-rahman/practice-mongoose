@@ -36,10 +36,10 @@ const userSchema = new Schema<IUser, UserModel, IUserMethods>({
 });
 
 //class > static method
-// userSchema.static("getAdminUsers", async function getAdminUsers() {
-//   const admins = await this.find({ role: "admin" });
-//   return admins;
-// });
+userSchema.static("getAdminUsers", async function getAdminUsers() {
+  const admins = await this.find({ role: "admin" });
+  return admins;
+});
 
 userSchema.method("fullName", function fullName() {
   return this.name.firstName + " " + this.name.lastName;

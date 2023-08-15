@@ -25,5 +25,5 @@ export interface IUserMethods {
 
 //static
 export interface UserModel extends Model<IUser, {}, IUserMethods> {
-  getAdminsStatic(role: string): Promise<HydratedDocument<IUser, IUserMethods>>;
+  getAdminUsers(): Promise<HydratedDocument<IUser, IUserMethods>>;
 }
