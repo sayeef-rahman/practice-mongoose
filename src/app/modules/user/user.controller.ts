@@ -79,6 +79,5 @@ export const getAdminsStatic = async (
 };
 
 //pattern
-
 // Router will call controller
 // controller will call service
